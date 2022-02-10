@@ -1,0 +1,5 @@
+allow sprd_validationtools_app teetz_device:chr_file {open ioctl read write};
+allow sprd_validationtools_app sf_device:chr_file {open ioctl read write};
+allow sprd_validationtools_app sf_service:hwservice_manager find;
+allow sprd_validationtools_app hal_fingerprint_default:binder { call transfer };
+allow hal_fingerprint_default sprd_validationtools_app:binder { call transfer };

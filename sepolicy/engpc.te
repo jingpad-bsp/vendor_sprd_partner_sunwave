@@ -1,0 +1,11 @@
+allow engpc teetz_device:chr_file {open ioctl read write};
+allow engpc sf_device:chr_file {open ioctl read write};
+allow engpc sf_service:hwservice_manager find;
+allow engpc hal_fingerprint_default:binder { call transfer };
+allow hal_fingerprint_default engpc:binder { call transfer };
+allow engpc self:netlink_kobject_uevent_socket { create setopt bind read };
+allow engpc hwservicemanager:binder call;
+allow hwservicemanager engpc:binder transfer;
+allow hwservicemanager engpc:dir search;
+allow hwservicemanager engpc:file { read open };
+allow hwservicemanager engpc:process getattr;

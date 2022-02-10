@@ -1,0 +1,18 @@
+subdirs = [
+    "*"
+]
+
+cc_defaults {
+    name: "hidl_sunwave",
+    vendor_available: true,
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
+hidl_package_root {
+    name: "vendor.sw",
+    path: "vendor/sprd/partner/sunwave/swhidl",
+}
+

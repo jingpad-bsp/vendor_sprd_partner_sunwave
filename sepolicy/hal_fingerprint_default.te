@@ -1,0 +1,27 @@
+# Sunwave: Please modify ${ANDROID_BUILD_TOP}/external/sepolicy/hal_fingerprint_default.te to  
+# configurate SEAndroid policy for fingerprintd which is specialized by Sunwave.
+
+# Sunwave 5-1: define the context labels for Sunwave relatives.
+type sf_device, dev_type;
+type sf_service, hwservice_manager_type;
+
+add_hwservice(hal_fingerprint_server, sf_service)
+
+# Sunwave 5-2: allow HAL module to access '/dev/sunwave_fp'.
+allow hal_fingerprint_default sf_device:chr_file rw_file_perms;
+
+# Sunwave 5-3: allow HAL module to access netlink uevent.
+allow hal_fingerprint_default self:netlink_kobject_uevent_socket { create setopt bind read };
+
+# Sunwave 5-5: allow HAL module to register 'SunwaveFingerprintService'.
+#allow hal_fingerprint_default sf_service:service_manager { add };
+
+# Sunwave 5-6: allow HAL module to access '/dev/trusty-ipc-dev0'
+allow hal_fingerprint_default teetz_device:chr_file {open ioctl read write};
+
+# Sunwave 5-7: allow HAL module to access test apk
+allow hal_fingerprint_default untrusted_app:binder call;
+
+# Sunwave 5-8: Allow fpserver to access /dev/input/event*.
+allow hal_fingerprint_default input_device:dir { search };
+allow hal_fingerprint_default input_device:chr_file { open read write ioctl rw_file_perms};

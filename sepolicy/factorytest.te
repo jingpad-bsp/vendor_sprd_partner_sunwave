@@ -1,0 +1,6 @@
+allow factorytest teetz_device:chr_file {open ioctl read write};
+allow factorytest sf_device:chr_file {open ioctl read write};
+allow factorytest sf_service:hwservice_manager find;
+allow factorytest hal_fingerprint_default:binder { call transfer };
+allow hal_fingerprint_default factorytest:binder { call transfer };
+allow factorytest self:netlink_kobject_uevent_socket { create setopt bind read };

@@ -1,0 +1,15 @@
+on post-fs
+    insmod ${ro.vendor.ko.mount.point}/socko/sunwave_fp.ko
+
+on factorytest
+    insmod ${ro.vendor.ko.mount.point}/socko/sunwave_fp.ko
+
+on boot
+#add for sunwave fingerprint
+    wait /dev/sunwave_fp
+    chmod 660 /dev/sunwave_fp
+    chown system system /dev/sunwave_fp
+
+on factorytest-start
+    chmod 660 /dev/sunwave_fp
+    chown system system /dev/sunwave_fp

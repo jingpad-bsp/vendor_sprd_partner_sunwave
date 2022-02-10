@@ -1,0 +1,15 @@
+# Do not change this file except to add new interfaces. Changing
+# pre-existing interfaces will fail VTS and break framework-only OTAs
+
+# HALs extension in Android O
+
+# Example light:
+#a2c72eca12fa2e26efcf6378da142ead4f29fc93d022c150bc1b91ce3cac5672 vendor.sprd.hardware.tests.light@2.0::types
+#4205e08a65ea73547ef72b9333e48ca69a2014fb5ccf0b4d3fe1e92c15216349 vendor.sprd.hardware.tests.light@2.0::IExtLight
+# Example end
+
+
+# swfingerprint for sunwave fingerprint begin
+1618642add774e68917cdb5d5b0f9fcc1850b8b43eb15ce1e18b628af25b5a04 vendor.sw.swfingerprint@1.0::ISwfingerprint
+04a3241f152895cc940b8993d597675f2267f12fe7eca6167faf3faf93bbc8a4 vendor.sw.swfingerprint@1.0::ISwfingerprintCallback
+# swfingerprint for sunwave fingerprint end
